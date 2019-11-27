@@ -1,0 +1,312 @@
+/*FUENTES DE TEXTO*/
+@font-face {
+  font-family: 'open_sansbold';
+  src: url('../font/opensans/opensans_bold_macroman/OpenSans-Bold-webfont.eot');
+  src: url('../font/opensans/opensans_bold_macroman/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../font/opensans/opensans_bold_macroman/OpenSans-Bold-webfont.woff') format('woff'),
+       url('../font/opensans/opensans_bold_macroman/OpenSans-Bold-webfont.ttf') format('truetype'),
+       url('../font/opensans/opensans_bold_macroman/OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sansextrabold';
+  src: url('../font/opensans/opensans_extrabold_macroman/OpenSans-ExtraBold-webfont.eot');
+  src: url('../font/opensans/opensans_extrabold_macroman/OpenSans-ExtraBold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../font/opensans/opensans_extrabold_macroman/OpenSans-ExtraBold-webfont.woff') format('woff'),
+       url('../font/opensans/opensans_extrabold_macroman/OpenSans-ExtraBold-webfont.ttf') format('truetype'),
+       url('../font/opensans/opensans_extrabold_macroman/OpenSans-ExtraBold-webfont.svg#open_sansextrabold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'open_sanslight';
+  src: url('../font/opensans/opensans_light_macroman/OpenSans-Light-webfont.eot');
+  src: url('../font/opensans/opensans_light_macroman/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../font/opensans/opensans_light_macroman/OpenSans-Light-webfont.woff') format('woff'),
+       url('../font/opensans/opensans_light_macroman/OpenSans-Light-webfont.ttf') format('truetype'),
+       url('../font/opensans/opensans_light_macroman/OpenSans-Light-webfont.svg#open_sanslight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('../font/opensans/opensans_regular_macroman/OpenSans-Regular-webfont.eot');
+  src: url('../font/opensans/opensans_regular_macroman/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../font/opensans/opensans_regular_macroman/OpenSans-Regular-webfont.woff') format('woff'),
+       url('../font/opensans/opensans_regular_macroman/OpenSans-Regular-webfont.ttf') format('truetype'),
+       url('../font/opensans/opensans_regular_macroman/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+font-family: 'Conv_futura_bk_bt_book';
+src: url('../font/futura/futura_bk_bt_book/fonts/futura_bk_bt_book.eot');
+src: local('../font/futura/futura_bk_bt_book/fonts/?'), 
+   url('../font/futura/futura_bk_bt_book/fonts/futura_bk_bt_book.woff') format('woff'), 
+   url('../font/futura/futura_bk_bt_book/fonts/futura_bk_bt_book.ttf') format('truetype'), 
+   url('../font/futura/futura_bk_bt_book/fonts/futura_bk_bt_book.svg') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'Conv_futura_md_bt_bold';
+src: url('../font/futura/futura_md_bt_bold/fonts/futura_md_bt_bold.eot');
+src: local('../font/futura/futura_md_bt_bold/?'), 
+   url('../font/futura/futura_md_bt_bold/fonts/futura_md_bt_bold.woff') format('woff'), 
+   url('../font/futura/futura_md_bt_bold/fonts/futura_md_bt_bold.ttf') format('truetype'), 
+   url('../font/futura/futura_md_bt_bold/fonts/futura_md_bt_bold.svg') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'Conv_FuturaNormal';
+src: url('../font/futura/FuturaNormal/fonts/FuturaNormal.eot');
+src: local('?'), 
+   url('../font/futura/FuturaNormal/fonts/FuturaNormal.woff') format('woff'), 
+   url('../font/futura/FuturaNormal/fonts/FuturaNormal.ttf') format('truetype'), 
+   url('../font/futura/FuturaNormal/fonts/FuturaNormal.svg') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+
+.btn-excel-xlsx { 
+color: #ffffff; 
+background-color: #12BA34; 
+border-color: #035910; 
+box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.56);
+} 
+
+.btn-excel-xlsx:hover, 
+.btn-excel-xlsx:focus, 
+.btn-excel-xlsx:active, 
+.btn-excel-xlsx.active, 
+.open .dropdown-toggle.btn-excel-xlsx { 
+color: #ffffff; 
+background-color: #0E8A20; 
+border-color: #035910; 
+} 
+
+.btn-excel-xlsx:active, 
+.btn-excel-xlsx.active, 
+.open .dropdown-toggle.btn-excel-xlsx { 
+background-image: none; 
+} 
+
+.btn-excel-xlsx.disabled, 
+.btn-excel-xlsx[disabled], 
+fieldset[disabled] .btn-excel-xlsx, 
+.btn-excel-xlsx.disabled:hover, 
+.btn-excel-xlsx[disabled]:hover, 
+fieldset[disabled] .btn-excel-xlsx:hover, 
+.btn-excel-xlsx.disabled:focus, 
+.btn-excel-xlsx[disabled]:focus, 
+fieldset[disabled] .btn-excel-xlsx:focus, 
+.btn-excel-xlsx.disabled:active, 
+.btn-excel-xlsx[disabled]:active, 
+fieldset[disabled] .btn-excel-xlsx:active, 
+.btn-excel-xlsx.disabled.active, 
+.btn-excel-xlsx[disabled].active, 
+fieldset[disabled] .btn-excel-xlsx.active { 
+background-color: #12BA34; 
+border-color: #035910; 
+} 
+
+.btn-excel-xlsx .badge { 
+color: #12BA34; 
+background-color: #ffffff; 
+}
+
+.btn-excel-xls { 
+color: #ffffff; 
+background-color: #0B8723; 
+border-color: #06400F; 
+} 
+
+.btn-excel-xls:hover, 
+.btn-excel-xls:focus, 
+.btn-excel-xls:active, 
+.btn-excel-xls.active, 
+.open .dropdown-toggle.btn-excel-xls { 
+color: #ffffff; 
+background-color: #095C15; 
+border-color: #06400F; 
+} 
+
+.btn-excel-xls:active, 
+.btn-excel-xls.active, 
+.open .dropdown-toggle.btn-excel-xls { 
+background-image: none; 
+} 
+
+.btn-excel-xls.disabled, 
+.btn-excel-xls[disabled], 
+fieldset[disabled] .btn-excel-xls, 
+.btn-excel-xls.disabled:hover, 
+.btn-excel-xls[disabled]:hover, 
+fieldset[disabled] .btn-excel-xls:hover, 
+.btn-excel-xls.disabled:focus, 
+.btn-excel-xls[disabled]:focus, 
+fieldset[disabled] .btn-excel-xls:focus, 
+.btn-excel-xls.disabled:active, 
+.btn-excel-xls[disabled]:active, 
+fieldset[disabled] .btn-excel-xls:active, 
+.btn-excel-xls.disabled.active, 
+.btn-excel-xls[disabled].active, 
+fieldset[disabled] .btn-excel-xls.active { 
+background-color: #0B8723; 
+border-color: #06400F; 
+} 
+
+.btn-excel-xls .badge { 
+color: #0B8723; 
+background-color: #ffffff; 
+}
+
+.btn-txt { 
+	color: #000000; 
+	background-color: #E6E6E6; 
+	border-color: #8C8C8C; 
+  } 
+   
+  .btn-txt:hover, 
+  .btn-txt:focus, 
+  .btn-txt:active, 
+  .btn-txt.active, 
+  .open .dropdown-toggle.btn-txt { 
+	color: #000000; 
+	background-color: #C4CCC5; 
+	border-color: #8C8C8C; 
+  } 
+   
+  .btn-txt:active, 
+  .btn-txt.active, 
+  .open .dropdown-toggle.btn-txt { 
+	background-image: none; 
+  } 
+   
+  .btn-txt.disabled, 
+  .btn-txt[disabled], 
+  fieldset[disabled] .btn-txt, 
+  .btn-txt.disabled:hover, 
+  .btn-txt[disabled]:hover, 
+  fieldset[disabled] .btn-txt:hover, 
+  .btn-txt.disabled:focus, 
+  .btn-txt[disabled]:focus, 
+  fieldset[disabled] .btn-txt:focus, 
+  .btn-txt.disabled:active, 
+  .btn-txt[disabled]:active, 
+  fieldset[disabled] .btn-txt:active, 
+  .btn-txt.disabled.active, 
+  .btn-txt[disabled].active, 
+  fieldset[disabled] .btn-txt.active { 
+	background-color: #E6E6E6; 
+	border-color: #8C8C8C; 
+  } 
+   
+  .btn-txt .badge { 
+	color: #E6E6E6; 
+	background-color: #000000; 
+  }
+
+
+	.my-group .form-control{
+    /* width:50%; */
+}
+
+.btn-descarga { 
+  color: #FFF; 
+  background-color: #918B23; 
+	border-color: #756513; 
+	box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.56);
+} 
+ 
+.btn-descarga:hover, 
+.btn-descarga:focus, 
+.btn-descarga:active, 
+.btn-descarga.active, 
+.open .dropdown-toggle.btn-descarga { 
+  color: #FFF; 
+  background-color: #756E22; 
+  border-color: #756513; 
+} 
+ 
+.btn-descarga:active, 
+.btn-descarga.active, 
+.open .dropdown-toggle.btn-descarga { 
+  background-image: none; 
+} 
+ 
+.btn-descarga.disabled, 
+.btn-descarga[disabled], 
+fieldset[disabled] .btn-descarga, 
+.btn-descarga.disabled:hover, 
+.btn-descarga[disabled]:hover, 
+fieldset[disabled] .btn-descarga:hover, 
+.btn-descarga.disabled:focus, 
+.btn-descarga[disabled]:focus, 
+fieldset[disabled] .btn-descarga:focus, 
+.btn-descarga.disabled:active, 
+.btn-descarga[disabled]:active, 
+fieldset[disabled] .btn-descarga:active, 
+.btn-descarga.disabled.active, 
+.btn-descarga[disabled].active, 
+fieldset[disabled] .btn-descarga.active { 
+  background-color: #918B23; 
+  border-color: #756513; 
+} 
+ 
+.btn-descarga .badge { 
+  color: #918B23; 
+  background-color: #FFF; 
+}
+
+/* change font in top and bottom */
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .ui-button {
+  /* color: red; */
+  /* font-family: 'courier'; */
+  font-size: 12px;
+  padding: 0px;
+}
+
+/* change "height" caused by exaggerated padding */
+.dataTables_wrapper .ui-toolbar {
+  padding: 0px;
+}
+
+
+
+/* CAMBIA EL STYLO DEL SCROLL DEL DATATABLE */
+.dataTables_scrollBody::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-thumb {
+  background-color: #777;
+  border-radius: 10px;
+}
+
+table#tbBaseClienteLista.dataTable tbody tr:hover {
+  background-color: #ffa;
+}
+ 
+table#tbBaseClienteLista.dataTable tbody tr:hover > .sorting_1 {
+  background-color: #ffa;
+}
