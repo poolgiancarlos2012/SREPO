@@ -1,6 +1,12 @@
 <IfModule mod_rewrite.c>
+
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
+
+# Redireccion de url
+# RewriteCond %{HTTP_HOST} !192.168.0.34:8080/SREPO/repositorio/Ctrl_Usuario/View_Login [NC]
+# RewriteRule %{HTTP_HOST} http://192.168.0.34:8080/SREPO/ [R=301,L]
+
 </IfModule>

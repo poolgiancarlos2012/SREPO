@@ -53,15 +53,12 @@ $route['default_controller'] = 'repositorio/Ctrl_Usuario/View_Login'; // CODE IG
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// $route['principal'] = 'index/principal';
 $route['repositorio/(:any)/(:any)'] = 'repositorio/$1/$2';
 $route['repositorio/(:any)'] = 'repositorio/$1/index';
 
-//$route['brain/(:any)/(:any)'] = 'brain/$1/$2';
 $route['brain/([a-z]+)/(:any)'] = 'brain/Ctrl_Principal/$1/$2';
-//$route['brain/(:any)'] = 'brain/$1/index';
 
 $route['Principal'] = 'brain/Ctrl_Principal/index';
-//$route['CreditosCobranzas'] = 'brain/Ctrl_Principal/View_CreditosCobranzas';
+
 $route['Ingresar'] = 'brain/Ctrl_Usuario/View_Login';
 $route['CuentaDetalle'] = 'brain/Ctrl_Operaciones_Credtios/View_Cuenta_Detalle';

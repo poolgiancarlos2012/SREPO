@@ -31,4 +31,20 @@ class Ctrl_Usuario extends CI_Controller {
 	public function View_Login() {
 		$this->load->view('repositorio/View_Login.php');
 	}
+
+	public function Show_Brain(){
+		$result = [];
+		$result['status'] = 'success';
+		$result['message'] = 'Yeah! You have successfully logged in.';
+		$result['redirect_url'] = base_url('Ingresar');
+		$this->output->set_content_type('application/json');
+		$this->output->set_output(json_encode($result));
+		$string = $this->output->get_output();
+		echo $string;
+		exit();		
+
+		//$this->load->view('brain/View_Login');
+
+	}
+
 }

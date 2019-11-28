@@ -67,7 +67,7 @@
                                 </label>
                             </div>
                         </div>
-
+						<input type="hidden" id="urlbase" value="<?php echo base_url()?>">
                         <div style="margin-top:10px" class="form-group">
                             <!-- Button -->
                             <div class="col-sm-12 controls">
