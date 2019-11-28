@@ -344,7 +344,7 @@
                     <li>
 						<a href="javascript:;">Historicos  <span class="fa arrow"></span>  </a>
 						<ul class="collapse">
-							<li> <a href="<?php echo base_url()?>brain/Ctrl_Operaciones_Creditos/View_Cuenta_Detalle">Pagos</a> </li>
+							<li> <a href="javascript:;">Pagos</a> </li>
 							<li> <a href="javascript:;">Cuentas</a> </li>
                             <li> <a href="<?php echo base_url()?>brain/Ctrl_Operaciones_Creditos/View_Cuenta_Detalle">Cuentas y su Detalle</a> </li>
 						</ul>

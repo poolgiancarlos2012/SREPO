@@ -26,7 +26,10 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 		$this->Js(array(base_url()."public/Librerias/Metis/assets/lib/screenfull/screenfull.js"));
 		$this->Js(array(base_url()."public/Librerias/Metis/assets/js/core.js"));
 		$this->Js(array(base_url()."public/Librerias/Metis/assets/js/app.js"));
-        $this->Js(array(base_url()."public/Librerias/Metis/assets/js/style-switcher.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/js/style-switcher.js"));
+		
+		$this->Js(array(base_url()."public/js/brain/JS_Login.js"));
+        $this->Js(array(base_url()."public/js/brain/AJAX_Login.js"));
         
         $this->Js(array(base_url()."public/js/brain/JS_Operaciones_Creditos.js"));
         $this->Js(array(base_url()."public/js/brain/AJAX_Operaciones_Creditos.js"));
