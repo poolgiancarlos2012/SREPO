@@ -29,14 +29,13 @@ class Ctrl_Usuario extends MY_Controller {
             $data_user = $this->Model_Ingresar->Obtener_Informacion($user, $pass);
 
             $session_data = array(
+				'idusuario' => $data_user[0]['IDUSUARIO'],
                 'nombre' => $data_user[0]['NOMBRE'],
                 'paterno' => $data_user[0]['PATERNO'],
                 'materno' => $data_user[0]['MATERNO'],
                 'usuario' => $data_user[0]['USUARIO'],
                 'tipo_usuario' => $data_user[0]['TIPO_USUARIO']
             );
-
-
 
             $this->session->set_userdata('logged_in', $session_data);
 

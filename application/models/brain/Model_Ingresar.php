@@ -22,6 +22,7 @@ class Model_Ingresar extends CI_Model {
 		// 			SUBSTRING(sys.fn_sqlvarbasetostr(HASHBYTES('MD5', DNI)),3,32)=SUBSTRING(sys.fn_sqlvarbasetostr(HASHBYTES('MD5', '$pass')),3,32)";
 
         $query = "	SELECT
+					USERS.IDUSUARIO,
                     EMPLEADO.NOMBRE,
                     EMPLEADO.PATERNO,
                     EMPLEADO.MATERNO,
@@ -60,6 +61,7 @@ class Model_Ingresar extends CI_Model {
 		// 			SUBSTRING(sys.fn_sqlvarbasetostr(HASHBYTES('MD5', DNI)),3,32)=SUBSTRING(sys.fn_sqlvarbasetostr(HASHBYTES('MD5', '$pass')),3,32)";
 
         $query = "	SELECT
+					USERS.IDUSUARIO,
                     EMPLEADO.NOMBRE,
                     EMPLEADO.PATERNO,
                     EMPLEADO.MATERNO,

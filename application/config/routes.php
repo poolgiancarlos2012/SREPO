@@ -62,3 +62,4 @@ $route['Principal'] = 'brain/Ctrl_Principal/index';
 
 $route['Ingresar'] = 'brain/Ctrl_Usuario/View_Login';
 $route['CuentaDetalle'] = 'brain/Ctrl_Operaciones_Creditos/View_Cuenta_Detalle';
+
