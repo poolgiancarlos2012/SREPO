@@ -323,7 +323,7 @@
 					<li>
 						<a href="javascript:;">Letras  <span class="fa arrow"></span>  </a>
 						<ul class="collapse">
-							<li> <a href="<?php echo base_url()?>index/letras_x_situacion">Letras x Situación</a> </li>
+							<li> <a href="<?php echo base_url()?>letras_x_situacion">Letras x Situación</a> </li>
 							<li> <a href="javascript:;">Letras 2</a> </li>
                             <!-- <li> <a href="javascript:;">Historico</a> </li>
                             <li> <a href="javascript:;">Estados de Cuenta</a> </li> -->
@@ -332,12 +332,12 @@
                     <li>
 						<a href="javascript:;">Estado de Cuenta  <span class="fa arrow"></span>  </a>
 						<ul class="collapse">
-							<li> <a href="<?php echo base_url()?>index/letras_x_situacion">EstCue x Cliente</a> </li>
-                            <li> <a href="<?php echo base_url()?>index/letras_x_situacion">EstCue x Fecha</a> </li>
-                            <li> <a href="<?php echo base_url()?>index/letras_x_situacion">EstCue Envio Masivo @</a> </li>
-                            <li> <a href="<?php echo base_url()?>index/letras_x_situacion">Gerencial Cliente</a> </li>
-                            <li> <a href="<?php echo base_url()?>index/letras_x_situacion">Gerencial Tiendas</a> </li>
-                            <li> <a href="<?php echo base_url()?>index/letras_x_situacion">Gerencial Castigados</a> </li>
+							<li> <a href="<?php echo base_url()?>letras_x_situacion">EstCue x Cliente</a> </li>
+                            <li> <a href="<?php echo base_url()?>letras_x_situacion">EstCue x Fecha</a> </li>
+                            <li> <a href="<?php echo base_url()?>letras_x_situacion">EstCue Envio Masivo @</a> </li>
+                            <li> <a href="<?php echo base_url()?>Gerencial">Gerencial</a> </li>
+                            <li> <a href="<?php echo base_url()?>letras_x_situacion">Gerencial Tiendas</a> </li>
+                            <li> <a href="<?php echo base_url()?>letras_x_situacion">Gerencial Castigados</a> </li>
 
 						</ul>
 					</li>

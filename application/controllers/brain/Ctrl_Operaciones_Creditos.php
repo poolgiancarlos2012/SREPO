@@ -208,4 +208,370 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 
 	}	
 
+	# INICIO GERENCIAL
+	public function View_Gerencial(){
+		$this->setTitle("Sistema de Reportes");
+        $this->setKeywords("mas keywords");
+        $this->setDescripcion("Sistema de Reportes");
+
+		$this->Css(array(base_url()."public/css/normalize.css"));
+		$this->Css(array(base_url()."public/Librerias/Metis/assets/lib/bootstrap/css/bootstrap.css"));
+		$this->Css(array(base_url()."public/Librerias/fontawesome-5.9.0/css/fontawesome.css"));
+		$this->Css(array(base_url()."public/Librerias/fontawesome-5.9.0/css/brands.css"));
+		$this->Css(array(base_url()."public/Librerias/fontawesome-5.9.0/css/solid.css"));
+		$this->Css(array(base_url()."public/Librerias/Metis/assets/css/main.css"));
+		$this->Css(array(base_url()."public/Librerias/Metis/assets/lib/metismenu/metisMenu.css"));
+		$this->Css(array(base_url()."public/Librerias/Metis/assets/lib/onoffcanvas/onoffcanvas.css"));
+		$this->Css(array(base_url()."public/Librerias/Metis/assets/lib/animate.css/animate.css"));
+		$this->Css(array(base_url()."public/Librerias/Metis/assets/css/style-switcher.css"));
+
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/lib/jquery/jquery.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/lib/bootstrap/js/bootstrap.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/lib/metismenu/metisMenu.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/lib/onoffcanvas/onoffcanvas.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/lib/screenfull/screenfull.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/js/core.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/js/app.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/js/style-switcher.js"));
+
+		$this->Js(array(base_url()."public/Librerias/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"));
+		$this->Js(array(base_url()."public/Librerias/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.es.js"));
+		$this->Css(array(base_url()."public/Librerias/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css"));
+
+		$this->Js(array(base_url()."public/Librerias/bootstrap-multiselect/js/bootstrap-multiselect.js"));
+		$this->Css(array(base_url()."public/Librerias/bootstrap-multiselect/css/bootstrap-multiselect.css"));
+
+		// $this->Css(array(base_url()."public/Librerias/Autocomplete/jquery.autocomplete.css"));
+		// $this->Js(array(base_url()."public/Librerias/Autocomplete/jquery.autocomplete.js"));
+
+		$this->Css(array(base_url()."public/Librerias/EasyAutocomplete-1.3.5/easy-autocomplete.css"));
+		$this->Css(array(base_url()."public/Librerias/EasyAutocomplete-1.3.5/easy-autocomplete.themes.css"));
+		$this->Js(array(base_url()."public/Librerias/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.js"));
+
+		$this->Css(array(base_url()."public/Librerias/jquery-confirm-v3.3.4/jquery-confirm.css"));
+		$this->Js(array(base_url()."public/Librerias/jquery-confirm-v3.3.4/jquery-confirm.js"));
+
+		$this->Css(array(base_url()."public/css/estilos.css"));
+		
+		$this->Js(array(base_url()."public/js/brain/JS_Login.js"));
+        $this->Js(array(base_url()."public/js/brain/AJAX_Login.js"));
+        
+        $this->Js(array(base_url()."public/js/brain/JS_Operaciones_Creditos.js"));
+        $this->Js(array(base_url()."public/js/brain/AJAX_Operaciones_Creditos.js"));
+		
+		$this->LoadLayoutBrain('brain/View_Gerencial');
+
+	}
+
+	public function Fn_Listar_Documentos_Pendientes(){
+
+		$xls = new PHPExcel();
+
+		$columna=array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AY","AZ");
+
+		$font = array(
+		'font'  => array(
+			'bold'  => false,
+			'color' => array('rgb' => '002060'),
+			'size'  => 8,
+			'name'  => 'Verdana'
+		));
+		$font_percent = array(
+		'font'  => array(
+			'bold'  => true,
+			'color' => array('rgb' => '002060'),
+			'size'  => 8,
+			'name'  => 'Verdana'
+		));
+		$title = array(
+		'font'  => array(
+			'bold'  => true,
+			'color' => array('rgb' => '000000'),
+			'size'  => 13,
+			'name'  => 'Verdana'
+		));
+		$font_cabe_blue = array(
+		'font'  => array(
+			'bold'  => true,
+			'color' => array('rgb' => '002060'),
+			'size'  => 10,
+			'name'  => 'Verdana'
+		));
+		$font_header = array(
+		'font'  => array(
+			'bold'  => true,
+			'color' => array('rgb' => '002060'),
+			'size'  => 10,
+			'name'  => 'Verdana'
+		));
+		$font_header_amarillo = array(
+		'font'  => array(
+			'bold'  => true,
+			'color' => array('rgb' => '504500'),
+			'size'  => 8,
+			'name'  => 'Verdana'
+		));
+		$font_empresa_blue = array(
+		'font'  => array(
+			'bold'  => true,
+			'color' => array('rgb' => '1F4E78'),
+			'size'  => 10,
+			'name'  => 'Verdana'
+		));
+		$font_subtotal = array(
+		'font'  => array(
+			'bold'  => true,
+			'color' => array('rgb' => '000000'),
+			'size'  => 10,
+			'name'  => 'Verdana'
+		));
+		$border_mefium = array(
+		'borders' => array(
+			'allborders' => array(
+				'style' => PHPExcel_Style_Border::BORDER_MEDIUM
+			)
+		));
+		$border_thin = array(
+		'borders' => array(
+			'allborders' => array(
+				'style' => PHPExcel_Style_Border::BORDER_THIN
+			)
+			)
+		);
+		$border_thin_celeste = array(
+		'borders' => array(
+			'allborders' => array(
+				'style' => PHPExcel_Style_Border::BORDER_THIN ,
+				'color' => array('rgb' => '5094D0')
+			)
+			)
+		);
+		$border_thin_amarillo = array(
+		'borders' => array(
+			'allborders' => array(
+				'style' => PHPExcel_Style_Border::BORDER_THIN ,
+				'color' => array('rgb' => 'CAAF00')
+			)
+			)
+		);
+
+		$fondo_amarillo = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => 'FFFF00')
+			)
+		);
+
+		$fondo_celeste = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => 'C1EFFF')
+			)
+		);
+		$fondo_morado_claro = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => 'D9E1F2')
+			)
+		);
+		$fondo_claro = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => 'F0F4FF')
+			)
+		);
+		$fondo_celeste_claro = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => 'DDEBF7')
+			)
+		);
+		$fondo_celeste_oscuro = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => 'B8DAF7')
+			)
+		);
+
+		$fondo_rojo_claro = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => 'FFE1E1')
+			)
+		);
+
+		$fondo_verde_claro = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => 'D4FDCF')
+			)
+		);
+
+		$font_futura_header = array(
+		'font'  => array(
+			'bold'  => true,
+			'color' => array('rgb' => 'CDCFD4'),
+			'size'  => 8,
+			'name'  => 'Verdana'
+		));
+
+		$font_futura_texto = array(
+		'font'  => array(
+			'bold'  => false,
+			'color' => array('rgb' => '002060'),
+			'size'  => 8,
+			'name'  => 'Verdana'
+		));
+
+		$fondo_azul_oscuro = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => '3A2060')
+			)
+		);
+
+		$fondo_plomo = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => 'CDCFD4')
+			)
+		);
+
+		$fondo_celeste_clarisimo = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => 'EEF3F7')
+			)
+		);
+
+		function is_in_array($array, $key, $key_value){
+			$within_array = 'no';
+			foreach( $array as $k=>$v ){
+				if( is_array($v) ){
+					$within_array = is_in_array($v, $key, $key_value);
+					if( $within_array == 'yes' ){
+						break;
+					}
+				} else {
+						if( $v == $key_value && $k == $key ){
+								$within_array = 'yes';
+								break;
+						}
+				}
+			}
+			return $within_array;
+		}
+		
+		$xls->setActiveSheetIndex(0)->setTitle("BASE PDT");
+
+		$cabecera = array(			
+			'EMPRESA',
+			'RESPONSABLE DE ZONA',
+			'SUPERVISOR DE RIESGOS',
+			'SUPERVISOR COMERCIAL',
+			'TIPO CLIENTE',
+			'COD_CLIENTE',
+			'CLIENTE',
+			'TD',
+			'NUM. DOC.',
+			'FECHA DOC.',
+			'MES EMIS',
+			'AÑO EMIS',
+			'DIAS PLAZ0',
+			'FECHA VCTO.',
+			'M_VCTO',
+			'AÑO VCTO',
+			'DIAS TRANSC VCTO OF',
+			'FECHA GERENCIAL',
+			'TIPO DE OPERACIÓN',
+			'RANGO VCTO',
+			'IND.VCTO',
+			'LINEA DE CREDITO',
+			'MON',
+			'IMPORTE ORIGINAL',
+			'SALDO',
+			'TIPO DE CAMBIO',
+			'TOTAL CONVERTIDO A DOLARES',
+			'TOTAL CONVERTIDO A SOLES',
+			'GLOSA',
+			'EST.LETR',
+			'BANCO',
+			'NUM.COBRANZA',
+			'VENCIMIENTO ORIGEN',
+			'POSICION DE CLIENTE'
+		);
+				
+		$fil = 1;
+		$col = 0;
+		foreach($cabecera as $field) {
+			$xls->getActiveSheet()->setCellValueByColumnAndRow($col, $fil, $field);
+			$xls->getActiveSheet()->getStyle($columna[$col].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$col++;
+		}
+
+
+
+		$recorrer = $this->Model_Operaciones_Creditos->Listar_Documentos_Pendientes($_POST['modo'], $_POST['tabla']);
+		// $this->Model_Operaciones_Creditos->Listar_Documentos_Pendientes($_POST['modo'], $_POST['tabla']);
+
+		$fil=1;
+		$col=0;
+
+		foreach ($recorrer->result() as $rows) {
+			$fil=$fil+1;
+
+			$xls->getActiveSheet()->SetCellValue($columna[$col+0].$fil,  $rows->EMPRESA);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+1].$fil,  $rows->RESPONSABLE_ZONA);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+2].$fil,  $rows->SUPERVISOR);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+3].$fil,  $rows->SUPERVISOR_COMERCIAL);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+4].$fil,  $rows->TIPO_CLIENTE);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+5].$fil,  $rows->COD_CLIENTE);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+6].$fil,  $rows->CLIENTE);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+7].$fil,  $rows->TD);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+8].$fil,  $rows->DOCUMENTO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+9].$fil,  $rows->FECHA_EMISION);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+10].$fil, $rows->MES_EMIS);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+11].$fil, $rows->ANIO_EMIS);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+12].$fil, $rows->DIAS_PLAZO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+13].$fil, $rows->FECHA_VCTO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+14].$fil, $rows->MES_VCTO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+15].$fil, $rows->ANIO_VCTO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+16].$fil, $rows->DIAS_TRANSC);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+17].$fil, $rows->FECHA_GERENCIAL);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+18].$fil, $rows->TIPO_OPERACION);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+19].$fil, $rows->RANGO_VCTO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+20].$fil, $rows->IND_VCTO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+21].$fil, $rows->LINEA_CREDITO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+22].$fil, $rows->MO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+23].$fil, $rows->IMPORTE);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+24].$fil, $rows->SALDO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+25].$fil, $rows->TIPCAMB);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+26].$fil, $rows->SALDO_TOTAL_US);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+27].$fil, $rows->SALDO_TOTAL_MN);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+28].$fil, $rows->GLOSA);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+29].$fil, $rows->ESTADO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+30].$fil, $rows->BANCO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+31].$fil, $rows->NUM_COBRA);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+32].$fil, $rows->REFERENCIA);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+33].$fil, $rows->POSICION_CLIENTE);
+
+
+		}
+
+
+		$xls->createSheet();
+		$xls->setActiveSheetIndex(1)->setTitle('STATUS COLOCACIÓN');
+
+		
+
+		$fecha_envio=date('Y-m-d H:i:s');
+		$date = new DateTime($fecha_envio);
+		$objWriter = PHPExcel_IOFactory::createWriter($xls, 'Excel2007');
+		$objWriter->save('./documents/files/excel/GERENCIAL PENDIENTES '.$date->format('Y-m-d H.i.s').' Grupo Andina.xlsx');
+
+
+	}
+
+	# FIN GERENCIAL
+
 }

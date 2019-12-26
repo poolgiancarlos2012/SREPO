@@ -60,6 +60,9 @@ $route['brain/([a-z]+)/(:any)'] = 'brain/Ctrl_Principal/$1/$2';
 
 $route['Principal'] = 'brain/Ctrl_Principal/index';
 
+# Login
 $route['Ingresar'] = 'brain/Ctrl_Usuario/View_Login';
-$route['CuentaDetalle'] = 'brain/Ctrl_Operaciones_Creditos/View_Cuenta_Detalle';
 
+# Operaciones y Creditos
+$route['CuentaDetalle'] = 'brain/Ctrl_Operaciones_Creditos/View_Cuenta_Detalle';
+$route['Gerencial'] = 'brain/Ctrl_Operaciones_Creditos/View_Gerencial';

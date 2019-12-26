@@ -227,6 +227,17 @@ $(document).ready(function(){
 
 	});
 
+	// INICIO GERENCIAL
+	jQuery(".dropdown-menu li a").click(function(){
+	
+		jQuery(this)
+			.parents('.btn-group')
+			.find('.dropdown-toggle > [label]')
+			.html(jQuery(this).text());
+	 
+	});
+	// FIN GERENCIAL
+
 	
 
 });

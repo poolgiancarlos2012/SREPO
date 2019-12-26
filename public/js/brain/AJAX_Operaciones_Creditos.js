@@ -25,6 +25,27 @@ var AJAX_Operaciones_Creditos = {
 			}
 		});
 		
+	},
+	Reporte_Gerencial : function(vmodo, vtbl){
+		$.ajax({
+			url		: 'brain/Ctrl_Operaciones_Creditos/Fn_Listar_Documentos_Pendientes',
+			type	: 'POST',
+			dataType: 'json',
+			data	: {
+				modo 	: vmodo,
+				tabla	: vtbl	
+			},
+			beforeSend : function() {
+				
+			},
+			success : function(obj) {
+
+			},
+			error : function() {
+
+			}
+		});
+		
 	}
 	
 }
