@@ -410,7 +410,7 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 		$font_futura_header = array(
 		'font'  => array(
 			'bold'  => true,
-			'color' => array('rgb' => 'CDCFD4'),
+			'color' => array('rgb' => '000000'),
 			'size'  => 8,
 			'name'  => 'Verdana'
 		));
@@ -418,7 +418,7 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 		$font_futura_texto = array(
 		'font'  => array(
 			'bold'  => false,
-			'color' => array('rgb' => '002060'),
+			'color' => array('rgb' => '00002B'),
 			'size'  => 8,
 			'name'  => 'Verdana'
 		));
@@ -474,7 +474,7 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 
 		$cabecera = array(			
 			'EMPRESA',
-			'RESPONSABLE DE ZONA',
+			'RESPONSABLE'.PHP_EOL.'DE ZONA',
 			'SUPERVISOR DE RIESGOS',
 			'SUPERVISOR COMERCIAL',
 			'TIPO CLIENTE',
@@ -515,9 +515,15 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 		foreach($cabecera as $field) {
 			$xls->getActiveSheet()->setCellValueByColumnAndRow($col, $fil, $field);
 			$xls->getActiveSheet()->getStyle($columna[$col].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$xls->getActiveSheet()->getStyle($columna[$col].$fil)->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+			// $xls->getActiveSheet()->getStyle($columna[$col].$fil)->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_TOP);
+			$xls->getActiveSheet()->getStyle($columna[$col].$fil)->getAlignment()->setWrapText(true);
+
 			$col++;
 		}
 
+		$xls->getActiveSheet()->getStyle('A'.$fil.':AH'.$fil)->applyFromArray($font_futura_header);
+		$xls->getActiveSheet()->getRowDimension('1')->setRowHeight(40);
 
 
 		$recorrer = $this->Model_Operaciones_Creditos->Listar_Documentos_Pendientes($_POST['modo'], $_POST['tabla']);
@@ -552,13 +558,14 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 			$xls->getActiveSheet()->SetCellValue($columna[$col+20].$fil, $rows->IND_VCTO);
 			$xls->getActiveSheet()->SetCellValue($columna[$col+21].$fil, $rows->LINEA_CREDITO);
 			$xls->getActiveSheet()->SetCellValue($columna[$col+22].$fil, $rows->MO);
-			$xls->getActiveSheet()->SetCellValue($columna[$col+23].$fil, $rows->IMPORTE);
-			$xls->getActiveSheet()->SetCellValue($columna[$col+24].$fil, $rows->SALDO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+23].$fil, $rows->IMPORTE); 
+			$xls->getActiveSheet()->SetCellValue($columna[$col+24].$fil, $rows->SALDO); 
 			$xls->getActiveSheet()->SetCellValue($columna[$col+25].$fil, $rows->TIPCAMB);
-			$xls->getActiveSheet()->SetCellValue($columna[$col+26].$fil, $rows->SALDO_TOTAL_US);
-			$xls->getActiveSheet()->SetCellValue($columna[$col+27].$fil, $rows->SALDO_TOTAL_MN);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+26].$fil, $rows->SALDO_TOTAL_US); 
+			$xls->getActiveSheet()->SetCellValue($columna[$col+27].$fil, $rows->SALDO_TOTAL_MN); 
 			$xls->getActiveSheet()->SetCellValue($columna[$col+28].$fil, $rows->GLOSA);
 			$xls->getActiveSheet()->SetCellValue($columna[$col+29].$fil, $rows->ESTADO);
+<<<<<<< HEAD
 			$xls->getActiveSheet()->SetCellValue($columna[$col+30].$fil, $rows->DET_ESTADO);
 			$xls->getActiveSheet()->SetCellValue($columna[$col+31].$fil, $rows->BANCO);
 			$xls->getActiveSheet()->SetCellValue($columna[$col+32].$fil, $rows->NUM_COBRA);
@@ -572,6 +579,18 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 			$xls->getActiveSheet()->getStyle($columna[$col+25].$fil)->getNumberFormat()->setFormatCode('#,##0.000');
 			$xls->getActiveSheet()->getStyle($columna[$col+26].$fil)->getNumberFormat()->setFormatCode('#,##0.00');
 			$xls->getActiveSheet()->getStyle($columna[$col+27].$fil)->getNumberFormat()->setFormatCode('#,##0.00');
+=======
+			$xls->getActiveSheet()->SetCellValue($columna[$col+30].$fil, $rows->BANCO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+31].$fil, $rows->NUM_COBRA);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+33].$fil, $rows->POSICION_CLIENTE);
+>>>>>>> origin
+
+			$xls->getActiveSheet()->getStyle($columna[$col+23].$fil)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
+			$xls->getActiveSheet()->getStyle($columna[$col+24].$fil)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
+			$xls->getActiveSheet()->getStyle($columna[$col+26].$fil)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
+			$xls->getActiveSheet()->getStyle($columna[$col+27].$fil)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
+
+			$xls->getActiveSheet()->getStyle('A'.$fil.':AH'.$fil)->applyFromArray($font_futura_texto);
 
 
 		}
