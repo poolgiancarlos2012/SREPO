@@ -64,5 +64,6 @@ $route['Principal'] = 'brain/Ctrl_Principal/index';
 $route['Ingresar'] = 'brain/Ctrl_Usuario/View_Login';
 
 # Operaciones y Creditos
-$route['CuentaDetalle'] = 'brain/Ctrl_Operaciones_Creditos/View_Cuenta_Detalle';
-$route['Gerencial'] = 'brain/Ctrl_Operaciones_Creditos/View_Gerencial';
+$route['CuentaDetalle'] 		= 'brain/Ctrl_Operaciones_Creditos/View_Cuenta_Detalle';
+$route['Gerencial'] 			= 'brain/Ctrl_Operaciones_Creditos/View_Gerencial';
+$route['Registro_Doc_Pagos'] 	= 'brain/Ctrl_Operaciones_Creditos/View_Registros_Doc_Pagos';

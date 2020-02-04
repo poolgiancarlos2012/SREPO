@@ -238,7 +238,7 @@ $(document).ready(function(){
 	});
 	// FIN GERENCIAL
 
-	
+	//DataTable_Operaciones_Creditos.DataTable_Documentos();
 
 });
 

@@ -423,6 +423,14 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 			'name'  => 'Verdana'
 		));
 
+		$font_verdana_texto = array(
+			'font'  => array(
+				'bold'  => false,
+				'color' => array('rgb' => '000000'),
+				'size'  => 8,
+				'name'  => 'Verdana'
+			));
+
 		$fondo_azul_oscuro = array(
 			'fill' => array(
 				'type' => PHPExcel_Style_Fill::FILL_SOLID,
@@ -495,6 +503,7 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 			'TOTAL CONVERTIDO A SOLES',
 			'GLOSA',
 			'EST.LETR',
+			'DET_ESTADO',
 			'BANCO',
 			'NUM.COBRANZA',
 			'VENCIMIENTO ORIGEN',
@@ -550,10 +559,19 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 			$xls->getActiveSheet()->SetCellValue($columna[$col+27].$fil, $rows->SALDO_TOTAL_MN);
 			$xls->getActiveSheet()->SetCellValue($columna[$col+28].$fil, $rows->GLOSA);
 			$xls->getActiveSheet()->SetCellValue($columna[$col+29].$fil, $rows->ESTADO);
-			$xls->getActiveSheet()->SetCellValue($columna[$col+30].$fil, $rows->BANCO);
-			$xls->getActiveSheet()->SetCellValue($columna[$col+31].$fil, $rows->NUM_COBRA);
-			$xls->getActiveSheet()->SetCellValue($columna[$col+32].$fil, $rows->REFERENCIA);
-			$xls->getActiveSheet()->SetCellValue($columna[$col+33].$fil, $rows->POSICION_CLIENTE);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+30].$fil, $rows->DET_ESTADO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+31].$fil, $rows->BANCO);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+32].$fil, $rows->NUM_COBRA);
+			// $xls->getActiveSheet()->SetCellValue($columna[$col+32].$fil, $rows->REFERENCIA);
+			$xls->getActiveSheet()->SetCellValue($columna[$col+34].$fil, $rows->POSICION_CLIENTE);
+
+			$xls->getActiveSheet()->getStyle('A'.$fil.':AO'.$fil)->applyFromArray($font_verdana_texto);
+
+			$xls->getActiveSheet()->getStyle($columna[$col+23].$fil)->getNumberFormat()->setFormatCode('#,##0.00');
+			$xls->getActiveSheet()->getStyle($columna[$col+24].$fil)->getNumberFormat()->setFormatCode('#,##0.00');
+			$xls->getActiveSheet()->getStyle($columna[$col+25].$fil)->getNumberFormat()->setFormatCode('#,##0.000');
+			$xls->getActiveSheet()->getStyle($columna[$col+26].$fil)->getNumberFormat()->setFormatCode('#,##0.00');
+			$xls->getActiveSheet()->getStyle($columna[$col+27].$fil)->getNumberFormat()->setFormatCode('#,##0.00');
 
 
 		}
@@ -573,5 +591,70 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 	}
 
 	# FIN GERENCIAL
+
+	public function View_Registros_Doc_Pagos(){
+		$this->setTitle("Sistema de Reportes");
+        $this->setKeywords("mas keywords");
+        $this->setDescripcion("Sistema de Reportes");
+
+		$this->Css(array(base_url()."public/css/normalize.css"));
+		$this->Css(array(base_url()."public/Librerias/Metis/assets/lib/bootstrap/css/bootstrap.css"));
+		$this->Css(array(base_url()."public/Librerias/fontawesome-5.9.0/css/fontawesome.css"));
+		$this->Css(array(base_url()."public/Librerias/fontawesome-5.9.0/css/brands.css"));
+		$this->Css(array(base_url()."public/Librerias/fontawesome-5.9.0/css/solid.css"));
+		$this->Css(array(base_url()."public/Librerias/Metis/assets/css/main.css"));
+		$this->Css(array(base_url()."public/Librerias/Metis/assets/lib/metismenu/metisMenu.css"));
+		$this->Css(array(base_url()."public/Librerias/Metis/assets/lib/onoffcanvas/onoffcanvas.css"));
+		$this->Css(array(base_url()."public/Librerias/Metis/assets/lib/animate.css/animate.css"));
+		$this->Css(array(base_url()."public/Librerias/Metis/assets/css/style-switcher.css"));
+
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/lib/jquery/jquery.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/lib/bootstrap/js/bootstrap.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/lib/metismenu/metisMenu.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/lib/onoffcanvas/onoffcanvas.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/lib/screenfull/screenfull.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/js/core.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/js/app.js"));
+		$this->Js(array(base_url()."public/Librerias/Metis/assets/js/style-switcher.js"));
+
+		$this->Js(array(base_url()."public/Librerias/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"));
+		$this->Js(array(base_url()."public/Librerias/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.es.js"));
+		$this->Css(array(base_url()."public/Librerias/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css"));
+
+		$this->Js(array(base_url()."public/Librerias/bootstrap-multiselect/js/bootstrap-multiselect.js"));
+		$this->Css(array(base_url()."public/Librerias/bootstrap-multiselect/css/bootstrap-multiselect.css"));
+
+		// $this->Css(array(base_url()."public/Librerias/Autocomplete/jquery.autocomplete.css"));
+		// $this->Js(array(base_url()."public/Librerias/Autocomplete/jquery.autocomplete.js"));
+
+		$this->Css(array(base_url()."public/Librerias/EasyAutocomplete-1.3.5/easy-autocomplete.css"));
+		$this->Css(array(base_url()."public/Librerias/EasyAutocomplete-1.3.5/easy-autocomplete.themes.css"));
+		$this->Js(array(base_url()."public/Librerias/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.js"));
+
+		$this->Css(array(base_url()."public/Librerias/jquery-confirm-v3.3.4/jquery-confirm.css"));
+		$this->Js(array(base_url()."public/Librerias/jquery-confirm-v3.3.4/jquery-confirm.js"));
+
+		$this->Css(array(base_url()."public/css/estilos.css"));
+		
+		$this->Css(array(base_url()."public/Librerias/DataTable/css/dataTables.jqueryui.min.css"));
+		$this->Css(array(base_url()."public/Librerias/DataTable/css/buttons.jqueryui.min.css"));
+
+		$this->Js(array(base_url()."public/Librerias/DataTable/js/jquery.dataTables.min.js"));
+		$this->Js(array(base_url()."public/Librerias/DataTable/js/dataTables.jqueryui.min.js"));
+		$this->Js(array(base_url()."public/Librerias/DataTable/js/dataTables.buttons.min.js"));
+		$this->Js(array(base_url()."public/Librerias/DataTable/js/buttons.jqueryui.min.js"));
+		$this->Js(array(base_url()."public/Librerias/DataTable/js/buttons.html5.min.js"));
+		$this->Js(array(base_url()."public/Librerias/DataTable/js/buttons.print.min.js"));
+		$this->Js(array(base_url()."public/Librerias/DataTable/js/buttons.colVis.min.js"));
+
+		$this->Js(array(base_url()."public/js/brain/JS_Login.js"));
+        $this->Js(array(base_url()."public/js/brain/AJAX_Login.js"));
+        
+        $this->Js(array(base_url()."public/js/brain/JS_Operaciones_Creditos.js"));
+        $this->Js(array(base_url()."public/js/brain/AJAX_Operaciones_Creditos.js"));
+		
+		$this->LoadLayoutBrain('brain/View_Registros_Doc_Pagos');
+
+	}
 
 }

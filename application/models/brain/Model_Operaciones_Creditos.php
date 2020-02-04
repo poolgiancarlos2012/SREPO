@@ -99,6 +99,7 @@ class Model_Operaciones_Creditos extends CI_Model {
 			'SALDO_TOTAL_MN' => array('type' => 'NUMERIC', 'constraint' => '19,2', 'NULL' => TRUE),			
 			'GLOSA' => array('type' => 'VARCHAR', 'constraint' => 255, 'NULL' => TRUE),
 			'ESTADO' => array('type' => 'VARCHAR', 'constraint' => 20, 'NULL' => TRUE),
+			'DET_ESTADO' => array('type' => 'VARCHAR', 'constraint' => 255, 'NULL' => TRUE),
 			'BANCO' => array('type' => 'VARCHAR', 'constraint' => 100, 'NULL' => TRUE),
 			'NUM_COBRA' => array('type' => 'VARCHAR', 'constraint' => 100, 'NULL' => TRUE),
 			//'REFERENCIA' => array('type' => 'NVARCHAR', 'constraint' => 2000, 'NULL' => TRUE),	
@@ -162,6 +163,7 @@ class Model_Operaciones_Creditos extends CI_Model {
 						SALDO_TOTAL_MN,
 						GLOSA,
 						ESTADO,
+						DET_ESTADO,
 						BANCO,
 						NUM_COBRA,
 						POSICION_CLIENTE
@@ -180,7 +182,57 @@ class Model_Operaciones_Creditos extends CI_Model {
 						') 
 						";
 
-			$resultado = $this->mssql->query($inserttbl);
+		// $inserttbl = "	INSERT INTO $vtbl (
+		// 	EMPRESA,
+		// 	RESPONSABLE_ZONA,
+		// 	SUPERVISOR,
+		// 	SUPERVISOR_COMERCIAL,
+		// 	TIPO_CLIENTE,
+		// 	COD_CLIENTE,
+		// 	CLIENTE,
+		// 	TD,
+		// 	DOCUMENTO,
+		// 	FECHA_EMISION,
+		// 	MES_EMIS,
+		// 	ANIO_EMIS,
+		// 	DIAS_PLAZO,
+		// 	FECHA_VCTO,
+		// 	MES_VCTO,
+		// 	ANIO_VCTO,
+		// 	DIAS_TRANSC,
+		// 	FECHA_GERENCIAL,
+		// 	TIPO_OPERACION,
+		// 	RANGO_VCTO,
+		// 	IND_VCTO,
+		// 	LINEA_CREDITO,
+		// 	MO,
+		// 	IMPORTE,
+		// 	SALDO,
+		// 	TIPCAMB,
+		// 	SALDO_TOTAL_US,
+		// 	SALDO_TOTAL_MN,
+		// 	GLOSA,
+		// 	ESTADO,
+		// 	BANCO,
+		// 	NUM_COBRA,
+		// 	POSICION_CLIENTE
+		// 	)
+		// 	SELECT * FROM OPENROWSET ('SQLOLEDB','Server=(local);TRUSTED_CONNECTION=YES;',
+		// 	'set fmtonly off EXEC [RSFACCAR].dbo.[SP_GERENCIAL_XXX]
+		// 	''$vmodo'',
+		// 	NULL,NULL,NULL,NULL,NULL,NULL,NULL,
+		// 	NULL,NULL,NULL,NULL,NULL,NULL,NULL,
+		// 	NULL,NULL,NULL,NULL,NULL,NULL,NULL,
+		// 	''0016'',NULL,NULL,NULL,NULL,''0000'',NULL,
+		// 	NULL,NULL,NULL,NULL,NULL,NULL,NULL,
+		// 	NULL,NULL,NULL,NULL,NULL,NULL,NULL,
+		// 	NULL,NULL,NULL,NULL,NULL,NULL,NULL,
+		// 	NULL,NULL,NULL,NULL,NULL,NULL,NULL;
+		// 	') 
+		// 	";
+			
+
+		$resultado = $this->mssql->query($inserttbl);
 
 		$sqldocpend = "SELECT * FROM $vtbl";
 		$result = $this->mssql->query($sqldocpend);

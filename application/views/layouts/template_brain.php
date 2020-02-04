@@ -321,6 +321,15 @@
 				</a>
 				<ul class="collapse">
 					<li>
+						<a href="javascript:;">Gestiones  <span class="fa arrow"></span>  </a>
+						<ul class="collapse">
+							<li> <a href="<?php echo base_url()?>Registro_Doc_Pagos">Registro FT Pagos</a> </li>
+							<li> <a href="javascript:;">Gestion 2</a> </li>
+                            <!-- <li> <a href="javascript:;">Historico</a> </li>
+                            <li> <a href="javascript:;">Estados de Cuenta</a> </li> -->
+						</ul>
+					</li>
+					<li>
 						<a href="javascript:;">Letras  <span class="fa arrow"></span>  </a>
 						<ul class="collapse">
 							<li> <a href="<?php echo base_url()?>letras_x_situacion">Letras x Situación</a> </li>
