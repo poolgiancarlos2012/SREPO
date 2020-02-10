@@ -407,6 +407,36 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 			)
 		);
 
+		
+
+		$fondo_verde = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => '00FF00')
+			)
+		);
+
+		$fondo_rojo = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => 'FF0000')
+			)
+		);
+
+		$fondo_verde_petroleo = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => '3E390C')
+			)
+		);
+
+		$fondo_negro = array(
+			'fill' => array(
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => '000000')
+			)
+		);
+
 		$font_futura_header = array(
 		'font'  => array(
 			'bold'  => true,
@@ -427,6 +457,22 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 			'font'  => array(
 				'bold'  => false,
 				'color' => array('rgb' => '000000'),
+				'size'  => 8,
+				'name'  => 'Verdana'
+			));
+
+		$font_verdana_negro = array(
+			'font'  => array(
+				'bold'  => true,
+				'color' => array('rgb' => '000000'),
+				'size'  => 8,
+				'name'  => 'Verdana'
+			));
+
+		$font_verdana_blanco = array(
+			'font'  => array(
+				'bold'  => true,
+				'color' => array('rgb' => 'FFFFFF'),
 				'size'  => 8,
 				'name'  => 'Verdana'
 			));
@@ -482,13 +528,13 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 			'CLIENTE',
 			'TD',
 			'NUM. DOC.',
-			'FECHA DOC.',
-			'MES EMIS',
-			'AÑO EMIS',
-			'DIAS PLAZ0',
-			'FECHA VCTO.',
-			'M_VCTO',
-			'AÑO VCTO',
+			'FECHA'.PHP_EOL.'DOC.',
+			'MES '.PHP_EOL.' EMIS',
+			'AÑO '.PHP_EOL.' EMIS',
+			'DIAS'.PHP_EOL.'PLAZ0',
+			'FECHA'.PHP_EOL.'VCTO.',
+			'MES'.PHP_EOL.'VCTO',
+			'AÑO'.PHP_EOL.'VCTO',
 			'DIAS TRANSC VCTO OF',
 			'FECHA GERENCIAL',
 			'TIPO DE OPERACIÓN',
@@ -524,6 +570,44 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 
 		$xls->getActiveSheet()->getStyle('A'.$fil.':AI'.$fil)->applyFromArray($font_futura_header);
 		$xls->getActiveSheet()->getRowDimension('1')->setRowHeight(40);
+
+		$xls->getActiveSheet()->getColumnDimensionByColumn(0)->setWidth(11); // EMPRESA
+		$xls->getActiveSheet()->getColumnDimensionByColumn(1)->setWidth(21); // RESPONSABLE DE ZONA
+		$xls->getActiveSheet()->getColumnDimensionByColumn(2)->setWidth(15); // SUPERVISOR DE RIESGOS
+		$xls->getActiveSheet()->getColumnDimensionByColumn(3)->setWidth(15); // SUPERVISOR COMERCIAL
+		$xls->getActiveSheet()->getColumnDimensionByColumn(4)->setWidth(23); // TIPO CLIENTE
+		$xls->getActiveSheet()->getColumnDimensionByColumn(5)->setWidth(14); // COD_CLIENTE
+		$xls->getActiveSheet()->getColumnDimensionByColumn(6)->setWidth(40); // CLIENTE
+		$xls->getActiveSheet()->getColumnDimensionByColumn(7)->setWidth(5);  // TD
+		$xls->getActiveSheet()->getColumnDimensionByColumn(8)->setWidth(14); // NUM. DOC.
+		$xls->getActiveSheet()->getColumnDimensionByColumn(9)->setWidth(14); // FECHA DOC.
+		$xls->getActiveSheet()->getColumnDimensionByColumn(10)->setWidth(11); // MES EMIS
+		$xls->getActiveSheet()->getColumnDimensionByColumn(11)->setWidth(10); // AÑO EMIS
+		$xls->getActiveSheet()->getColumnDimensionByColumn(12)->setWidth(12); // DIAS PLAZ0
+		$xls->getActiveSheet()->getColumnDimensionByColumn(13)->setWidth(13); // FECHA VCTO.
+		$xls->getActiveSheet()->getColumnDimensionByColumn(14)->setWidth(10); // M_VCTO
+		$xls->getActiveSheet()->getColumnDimensionByColumn(15)->setWidth(10); // AÑO VCTO
+		$xls->getActiveSheet()->getColumnDimensionByColumn(16)->setWidth(14); // DIAS TRANSC VCTO OF
+		$xls->getActiveSheet()->getColumnDimensionByColumn(17)->setWidth(12); // FECHA GERENCIAL
+		$xls->getActiveSheet()->getColumnDimensionByColumn(18)->setWidth(17); // TIPO DE OPERACIÓN
+		$xls->getActiveSheet()->getColumnDimensionByColumn(19)->setWidth(21); // RANGO VCTO
+		$xls->getActiveSheet()->getColumnDimensionByColumn(20)->setWidth(14); // IND.VCTO
+		$xls->getActiveSheet()->getColumnDimensionByColumn(21)->setWidth(12); // LINEA DE CREDITO
+		$xls->getActiveSheet()->getColumnDimensionByColumn(22)->setWidth(5); // MON
+		$xls->getActiveSheet()->getColumnDimensionByColumn(23)->setWidth(10); // IMPORTE ORIGINAL
+		$xls->getActiveSheet()->getColumnDimensionByColumn(24)->setWidth(10); // SALDO
+		$xls->getActiveSheet()->getColumnDimensionByColumn(25)->setWidth(9); // TIPO DE CAMBIO
+		$xls->getActiveSheet()->getColumnDimensionByColumn(26)->setWidth(16); // TOTAL CONVERTIDO A DOLARES
+		$xls->getActiveSheet()->getColumnDimensionByColumn(27)->setWidth(16); // TOTAL CONVERTIDO A SOLES
+		$xls->getActiveSheet()->getColumnDimensionByColumn(28)->setWidth(54); // GLOSA
+		$xls->getActiveSheet()->getColumnDimensionByColumn(29)->setWidth(10); // EST.LETR
+		$xls->getActiveSheet()->getColumnDimensionByColumn(30)->setWidth(15); // BANCO
+		$xls->getActiveSheet()->getColumnDimensionByColumn(31)->setWidth(17); // NUM.COBRANZA
+		$xls->getActiveSheet()->getColumnDimensionByColumn(32)->setWidth(16); // VENCIMIENTO ORIGEN
+		$xls->getActiveSheet()->getColumnDimensionByColumn(33)->setWidth(17); // POSICION DE CLIENTE
+
+		$xls->getActiveSheet()->getStyle("R1")->applyFromArray($fondo_amarillo);
+
 
 
 		$recorrer = $this->Model_Operaciones_Creditos->Listar_Documentos_Pendientes($_POST['modo'], $_POST['tabla']);
@@ -584,8 +668,39 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 			$xls->getActiveSheet()->getStyle($columna[$col+26].$fil)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 			$xls->getActiveSheet()->getStyle($columna[$col+27].$fil)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
+			$xls->getActiveSheet()->getStyle($columna[$col+5].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$xls->getActiveSheet()->getStyle($columna[$col+7].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$xls->getActiveSheet()->getStyle($columna[$col+9].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$xls->getActiveSheet()->getStyle($columna[$col+11].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$xls->getActiveSheet()->getStyle($columna[$col+13].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$xls->getActiveSheet()->getStyle($columna[$col+15].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$xls->getActiveSheet()->getStyle($columna[$col+17].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$xls->getActiveSheet()->getStyle($columna[$col+20].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$xls->getActiveSheet()->getStyle($columna[$col+22].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$xls->getActiveSheet()->getStyle($columna[$col+33].$fil)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+
 			$xls->getActiveSheet()->getStyle('A'.$fil.':AH'.$fil)->applyFromArray($font_futura_texto);
 
+			if($rows->RANGO_VCTO == '8-(VIGENTE)' || $rows->RANGO_VCTO == '8-(VIGENTE)'){
+				$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->applyFromArray($font_verdana_negro);
+				$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->applyFromArray($fondo_verde);
+			} else if($rows->RANGO_VCTO == '9-(SALDO A FAVOR)'){
+				$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->applyFromArray($font_verdana_blanco);
+				$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->applyFromArray($fondo_verde_petroleo);
+			} else if($rows->RANGO_VCTO == '1-(09 A 30 DIAS)' || $rows->RANGO_VCTO == '2-(31 A 60 DIAS)' || $rows->RANGO_VCTO == '3-(61 A 90 DIAS)' || $rows->RANGO_VCTO == '4-(91 A 120 DIAS)' || $rows->RANGO_VCTO == '5-(121 A 360 DIAS)'){
+				$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->applyFromArray($font_verdana_blanco);
+				$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->applyFromArray($fondo_rojo);
+			} else if($rows->RANGO_VCTO == '0-(01 A 08 DIAS)'){
+				$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->applyFromArray($font_verdana_negro);
+				$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->applyFromArray($fondo_amarillo);
+			} else if($rows->RANGO_VCTO == '6-(MAS DE 360 DIAS)' || $rows->RANGO_VCTO == '7-(COB. JUDICIAL)'){
+				$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->applyFromArray($font_verdana_blanco);
+				$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->applyFromArray($fondo_negro);
+			} else if($rows->RANGO_VCTO == '7-(COB. JUDICIAL)'){
+				$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->applyFromArray($font_verdana_blanco);
+				$xls->getActiveSheet()->getStyle($columna[$col+19].$fil)->applyFromArray($fondo_plomo);
+			}
 
 		}
 
