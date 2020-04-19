@@ -23,17 +23,20 @@ var AJAX_Operaciones_Creditos = {
 			error : function() {
 
 			}
-		});
-		
+		});		
 	},
-	Reporte_Gerencial : function(vmodo, vtbl){
+	Reporte_Gerencial : function(vmodo, vtbl, vstatus){
+
+		// console.log(vmodo+"--"+vtbl+"--"+vstatus);
+
 		$.ajax({
 			url		: 'brain/Ctrl_Operaciones_Creditos/Fn_Listar_Documentos_Pendientes',
 			type	: 'POST',
 			dataType: 'json',
 			data	: {
 				modo 	: vmodo,
-				tabla	: vtbl	
+				tabla	: vtbl,
+				status	: vstatus	
 			},
 			beforeSend : function() {
 				

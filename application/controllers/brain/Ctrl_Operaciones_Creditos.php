@@ -708,7 +708,95 @@ class Ctrl_Operaciones_Creditos extends MY_Controller {
 		$xls->createSheet();
 		$xls->setActiveSheetIndex(1)->setTitle('STATUS COLOCACIÓN');
 
-		
+		$this->Model_Operaciones_Creditos->Listar_Status_Colocacion($_POST['tabla'],$_POST['status']);
+
+		$ar_Status = $this->Model_Operaciones_Creditos->Listar_Temp_Status_Coloc($_POST['status']);
+
+
+		$inirow = 6;
+
+		$filx = $inirow;
+		$colx = 0;
+
+		$rowcount = count($ar_Status->result());
+
+		$ultrow = $rowcount + $inirow;
+
+		$cont = 0;
+
+		foreach ($ar_Status->result() as $filax) {
+			
+
+			$cont = $cont +1;
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+0].$filx,  $filax->A_CARTERA_TOTAL);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+1].$filx,  $filax->A_CARTERA_VIGENTE);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+2].$filx,  $filax->A_COBRA_JUDI);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+3].$filx,  $filax->A_CARTERA_1_A_8);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+4].$filx,  $filax->A_CARTERA_9_A_30);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+5].$filx,  $filax->A_CARTERA_31_A_60);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+6].$filx,  $filax->A_CARTERA_61_A_90);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+7].$filx,  $filax->A_CARTERA_91_A_120);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+8].$filx,  $filax->A_CARTERA_121_A_360);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+9].$filx,  $filax->A_CARTERA_MAS_360);
+
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+11].$filx,  $filax->B_CARTERA_MORA_1);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+12].$filx,  $filax->B_COBRA_JUDI);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+13].$filx,  $filax->B_CARTERA_VIGENTE);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+14].$filx,  $filax->B_CARTERA_TOTAL);
+
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+16].$filx,  $filax->C_CARTERA_MORA_1);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+17].$filx,  $filax->C_COBRA_JUDI);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+18].$filx,  $filax->C_CARTERA_VIGENTE);
+
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+20].$filx,  $filax->D_CARTERA_MORA_9);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+21].$filx,  $filax->D_COBRA_JUDI);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+22].$filx,  $filax->D_CARTERA_VIGENTE_1_8);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+23].$filx,  $filax->D_CARTERA_TOTAL);
+
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+25].$filx,  $filax->E_CARTERA_MORA_9);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+26].$filx,  $filax->E_COBRA_JUDI);
+			$xls->getActiveSheet()->SetCellValue($columna[$colx+27].$filx,  $filax->E_CARTERA_VIGENTE_1_8);
+
+			$filx=$filx+1;
+
+			if($rowcount == $cont){
+				
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+0].$ultrow,  'Total general');
+
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+1].$ultrow,'=SUM('.$columna[$colx+1].$inirow.':'.$columna[$colx+1].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+2].$ultrow,'=SUM('.$columna[$colx+2].$inirow.':'.$columna[$colx+2].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+3].$ultrow,'=SUM('.$columna[$colx+3].$inirow.':'.$columna[$colx+3].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+4].$ultrow,'=SUM('.$columna[$colx+4].$inirow.':'.$columna[$colx+4].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+5].$ultrow,'=SUM('.$columna[$colx+5].$inirow.':'.$columna[$colx+5].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+6].$ultrow,'=SUM('.$columna[$colx+6].$inirow.':'.$columna[$colx+6].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+7].$ultrow,'=SUM('.$columna[$colx+7].$inirow.':'.$columna[$colx+7].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+8].$ultrow,'=SUM('.$columna[$colx+8].$inirow.':'.$columna[$colx+8].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+9].$ultrow,'=SUM('.$columna[$colx+9].$inirow.':'.$columna[$colx+9].($ultrow-1).')');
+				
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+11].$ultrow,'=SUM('.$columna[$colx+11].$inirow.':'.$columna[$colx+11].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+12].$ultrow,'=SUM('.$columna[$colx+12].$inirow.':'.$columna[$colx+12].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+13].$ultrow,'=SUM('.$columna[$colx+13].$inirow.':'.$columna[$colx+13].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+14].$ultrow,'=SUM('.$columna[$colx+14].$inirow.':'.$columna[$colx+14].($ultrow-1).')');
+				
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+16].$ultrow,'=SUM('.$columna[$colx+16].$inirow.':'.$columna[$colx+16].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+17].$ultrow,'=SUM('.$columna[$colx+17].$inirow.':'.$columna[$colx+17].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+18].$ultrow,'=SUM('.$columna[$colx+18].$inirow.':'.$columna[$colx+18].($ultrow-1).')');
+				
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+20].$ultrow,'=SUM('.$columna[$colx+20].$inirow.':'.$columna[$colx+20].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+21].$ultrow,'=SUM('.$columna[$colx+21].$inirow.':'.$columna[$colx+21].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+22].$ultrow,'=SUM('.$columna[$colx+22].$inirow.':'.$columna[$colx+22].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+23].$ultrow,'=SUM('.$columna[$colx+23].$inirow.':'.$columna[$colx+23].($ultrow-1).')');
+				
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+25].$ultrow,'=SUM('.$columna[$colx+25].$inirow.':'.$columna[$colx+25].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+26].$ultrow,'=SUM('.$columna[$colx+26].$inirow.':'.$columna[$colx+26].($ultrow-1).')');
+				$xls->getActiveSheet()->SetCellValue($columna[$colx+27].$ultrow,'=SUM('.$columna[$colx+27].$inirow.':'.$columna[$colx+27].($ultrow-1).')');
+				
+
+
+
+			}
+
+		}
 
 		$fecha_envio=date('Y-m-d H:i:s');
 		$date = new DateTime($fecha_envio);
